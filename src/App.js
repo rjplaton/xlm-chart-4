@@ -33,6 +33,7 @@ class App extends Component {
           visible: false,
           }
         ],
+    maxprice: [0],
 
   }
 
@@ -40,14 +41,18 @@ class App extends Component {
     if(this.state.currencies[id].visible === true) {
       // eslint-disable-next-line
         this.state.currencies[id].visible = false;
+        this.state.maxprice.splice(id, 1);
         this.setState({
             currencies: this.state.currencies,
+            maxprice: this.state.maxprice.sort(function(a, b){return b-a}),
         });
         } else {
       // eslint-disable-next-line
         this.state.currencies[id].visible = true;
+        this.state.maxprice.push(this.state.currencies[id].price);
         this.setState({
             currencies: this.state.currencies,
+            maxprice: this.state.maxprice.sort(function(a, b){return b-a}),
         });
       }
 
@@ -67,7 +72,7 @@ class App extends Component {
 
 
   componentDidMount() {
-    //this.fetchData()
+    this.fetchData()
   }
 
 
@@ -109,14 +114,17 @@ class App extends Component {
             this.state.currencies.map( (currency, id) => (
               <ChartBar 
                   currency={currency}
-                  visible={currency.visible} 
-                  abrev={currency.abrev}
-                  name={currency.name}
+                  rowId={ 
+                    currency.visible === true ? 
+                      currency.abrev + "Row" 
+                      : currency.abrev + "Row-hidden"
+                    } 
+                  barId={currency.abrev + "Bar"}
+                  name={"1 " + currency.name + " (" + currency.abrev.toUpperCase() + ")"}
                   price={currency.price}
-                  maxprice={this.state.currencies[0].price}
+                  barStyle={{width: `calc(${currency.price} / ${this.state.maxprice[0]} * 100%)`}}
                    />
             ))}
-
 </div>
   </div>
   
