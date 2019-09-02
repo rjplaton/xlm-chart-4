@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import BarChart from './components/BarChart/BarChart.js';
 import ChartBar from './components/ChartBar/ChartBar.js';
 
 class App extends Component {
@@ -107,25 +108,39 @@ class App extends Component {
 
 
 <div className="content">
-<div className="BarChart">
-<h2>How many XLM per...</h2>
 
-          {
-            this.state.currencies.map( (currency, id) => (
-              <ChartBar 
-                  currency={currency}
-                  rowId={ 
-                    currency.visible === true ? 
-                      currency.abrev + "Row" 
-                      : currency.abrev + "Row-hidden"
-                    } 
-                  barId={currency.abrev + "Bar"}
-                  name={"1 " + currency.name + " (" + currency.abrev.toUpperCase() + ")"}
-                  price={currency.price}
-                  barStyle={{width: `calc(${currency.price} / ${this.state.maxprice[0]} * 100%)`}}
-                   />
-            ))}
-</div>
+        <BarChart title="How many XLM per...">
+                  {
+                    this.state.currencies.map( (currency, id) => (
+                      <ChartBar 
+                          currency={currency}
+                          rowId={ 
+                            currency.visible === true ? 
+                              currency.abrev + "Row" 
+                              : currency.abrev + "Row-hidden"
+                            } 
+                          barId={currency.abrev + "Bar"}
+                          name={"1 " + currency.name + " (" + currency.abrev.toUpperCase() + ")"}
+                          price={currency.price}
+                          barStyle={{width: `calc(${currency.price} / ${this.state.maxprice[0]} * 100%)`}}
+                           />
+                    ))}
+        </BarChart>
+
+       { //example usage of components
+        // <BarChart title="Another Bar CHART!">
+        //     <ChartBar
+        //         name='bar 1'
+        //         price='1000'
+        //         barStyle={{width: `30%`}}
+        //         />
+        //     <ChartBar
+        //         name='bar 2'
+        //         price='2000'
+        //         barStyle={{width: `50%`}}
+        //         />
+        // </BarChart>
+        }
   </div>
   
 
