@@ -1,5 +1,5 @@
-# XLM Chart 3
-Part three of my project to learn React through iteratively tackling data-visualization problems, culminating in publishing a React.js-based data visualization package.
+# XLM Chart 4
+Part four of my project to learn React through iteratively tackling data-visualization problems, culminating in publishing a React.js-based data visualization package. In this iteration, I am working towards *componentization*.
 
 This repo uses the React JS framework and the app is served through a Heroku server.
 
