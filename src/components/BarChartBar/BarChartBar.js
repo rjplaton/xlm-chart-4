@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './ChartBar.css';
+import './BarChartBar.css';
 
-class ChartBar extends Component {
+class BarChartBar extends Component {
  render() {
     return (
             <div className="BarChart-row" id={this.props.rowId}>
@@ -13,7 +13,7 @@ class ChartBar extends Component {
     );
   }
 }
-export default ChartBar;
+export default BarChartBar;
 
 
 

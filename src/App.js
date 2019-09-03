@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+
 import './App.css';
 
+import Nav from './components/Nav/Nav.js';
 import BarChart from './components/BarChart/BarChart.js';
-import ChartBar from './components/ChartBar/ChartBar.js';
+import BarChartBar from './components/BarChartBar/BarChartBar.js';
+import Footer from './components/Footer/Footer.js';
 
 class App extends Component {
 
@@ -82,12 +84,10 @@ class App extends Component {
       return (
         <div className="App">
 
-          <nav className="nav">
-            <img src={logo} className="App-logo" alt="logo" />
-            <a href="https://rjplaton.github.io/stellar-pairings/">XLM Chart</a>
-          </nav>
+          <Nav />
 
 <div className="wrapper">
+
   <div className="header"><h1>Stellar Lumens (XLM) Conversion</h1></div>
 
   <div className="sidebar box">
@@ -112,7 +112,7 @@ class App extends Component {
         <BarChart title="How many XLM per...">
                   {
                     this.state.currencies.map( (currency, id) => (
-                      <ChartBar 
+                      <BarChartBar 
                           currency={currency}
                           rowId={ 
                             currency.visible === true ? 
@@ -144,13 +144,9 @@ class App extends Component {
   </div>
   
 
+  <Footer />
 
-  <div className="footer">
-    <a href="https://github.com/rjplaton/stellar-pairings">Github Repo</a>
-    <p>
-    <a href="http://rjplaton.com">Reuben Platon</a>
-  </p>
-    </div>
+
 </div>
 
 

@@ -1,0 +1,9 @@
+.BarChart {
+  display: inline-block;
+  width: 100%;
+  vertical-align: middle;
+}
+
+.BarChart h2 {
+  text-align: left;
+}

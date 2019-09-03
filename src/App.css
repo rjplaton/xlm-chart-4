@@ -79,13 +79,6 @@ h3 {
   line-height: 1;
 }
 
-.footer {
-  grid-area: footer;
-  text-align: center;
-  line-height: 0.8;
-  padding-top: 50px;
-}
-
 .wrapper {
   color: #444;
   width: 100%;
@@ -127,26 +120,6 @@ h3 {
   border-radius: 5px;
   padding: 10px;
 
-}
-
-.BarChart {
-  display: inline-block;
-  width: 100%;
-  vertical-align: middle;
-}
-
-.BarChart-row {
-  font-size: 13.5pt;
-  display: flex;
-  flex-wrap: wrap;
-  padding: 5px;
-  margin: 5px;
-  align-items: center;
-
-}
-.BarChart-rowdesc {
-  width: 20%;
-  color: var(--primary-color);
 }
 
 .nav {
@@ -199,10 +172,6 @@ h3 {
 
 #usdRow-hidden {
   display: none;
-}
-
-.BarChart h2 {
-  text-align: left;
 }
 
 .checkbox {
