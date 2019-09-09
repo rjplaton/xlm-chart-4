@@ -4,7 +4,6 @@ import './App.css';
 
 import Nav from './components/Nav/Nav.js';
 import BarChart from './components/BarChart/BarChart.js';
-import BarChartBar from './components/BarChartBar/BarChartBar.js';
 import Footer from './components/Footer/Footer.js';
 
 class App extends Component {
@@ -69,6 +68,10 @@ class App extends Component {
       .then(data => {
         console.log(data);
         currency.price = data.XLM;
+        this.setState({
+        currencies: this.state.currencies,         
+        })
+
       });
     };
   }
@@ -77,7 +80,6 @@ class App extends Component {
   componentDidMount() {
     this.fetchData()
   }
-
 
   render() {
       console.log("state rendered with this data:", this.state.currencies);
@@ -109,38 +111,13 @@ class App extends Component {
 
 <div className="content">
 
-        <BarChart title="How many XLM per...">
-                  {
-                    this.state.currencies.map( (currency, id) => (
-                      <BarChartBar 
-                          currency={currency}
-                          rowId={ 
-                            currency.visible === true ? 
-                              currency.abrev + "Row" 
-                              : currency.abrev + "Row-hidden"
-                            } 
-                          barId={currency.abrev + "Bar"}
-                          name={"1 " + currency.name + " (" + currency.abrev.toUpperCase() + ")"}
-                          price={currency.price}
-                          barStyle={{width: `calc(${currency.price} / ${this.state.maxprice[0]} * 100%)`}}
-                           />
-                    ))}
-        </BarChart>
-
-       { //example usage of components
-        // <BarChart title="Another Bar CHART!">
-        //     <ChartBar
-        //         name='bar 1'
-        //         price='1000'
-        //         barStyle={{width: `30%`}}
-        //         />
-        //     <ChartBar
-        //         name='bar 2'
-        //         price='2000'
-        //         barStyle={{width: `50%`}}
-        //         />
-        // </BarChart>
-        }
+         <BarChart 
+            title="How many XLM per..." 
+            chartArray={this.state.currencies} 
+            maxprice={this.state.maxprice[0]}
+            />
+         
+        
   </div>
   
 
