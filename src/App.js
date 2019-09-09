@@ -116,7 +116,6 @@ class App extends Component {
             chartArray={this.state.currencies} 
             maxprice={this.state.maxprice[0]}
             />
-         
         
   </div>
   
